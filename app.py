@@ -98,9 +98,11 @@ def run():
     db.close()
 
     # Setup SSL cert
-    ssl_context = SSL.Context(SSL.SSLv23_METHOD)
-    ssl_context.use_privatekey_file(ROOT_DIR + '/server.key')
-    ssl_context.use_certificate_file(ROOT_DIR + '/server.crt')
+    #ssl_context = SSL.Context(SSL.SSLv23_METHOD)
+    #ssl_context.use_privatekey_file(ROOT_DIR + '/server.key')
+    #ssl_context.use_certificate_file(ROOT_DIR + '/server.crt')
+    
+    ssl_context = (ROOT_DIR + '/server.key', ROOT_DIR + '/server.crt')
 
     app.run(debug=True, port=int(args.port), ssl_context=ssl_context)
 
